@@ -7,11 +7,13 @@ import br.com.alura.adopet.api.model.Pet;
 import br.com.alura.adopet.api.model.ProbabilidadeAdocao;
 import br.com.alura.adopet.api.model.TipoPet;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
 class CalculadoraProbabilidadeAdocaoTest {
     @Test
+    @DisplayName("High probability to young and slim cats")
     void shouldReturnHighProbability(){
 
         Abrigo abrigo = new Abrigo(new CadastroAbrigoDto(
@@ -35,6 +37,7 @@ class CalculadoraProbabilidadeAdocaoTest {
     }
 
     @Test
+    @DisplayName("Medium probability to old and slim cats")
     void shouldReturnMediumProbability(){
 
         Abrigo abrigo = new Abrigo(new CadastroAbrigoDto(
