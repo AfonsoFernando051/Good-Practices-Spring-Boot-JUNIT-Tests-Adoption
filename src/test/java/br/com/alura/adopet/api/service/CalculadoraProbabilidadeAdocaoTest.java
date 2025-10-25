@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 class CalculadoraProbabilidadeAdocaoTest {
     @Test
-    void cenario01(){
+    void shouldReturnHighProbability(){
 
         Abrigo abrigo = new Abrigo(new CadastroAbrigoDto(
                 "Abrigo feliz",
@@ -32,5 +32,28 @@ class CalculadoraProbabilidadeAdocaoTest {
         CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
         ProbabilidadeAdocao probabilidade =  calculadora.calcular(pet);
         Assertions.assertEquals(ProbabilidadeAdocao.ALTA, probabilidade);
+    }
+
+    @Test
+    void shouldReturnMediumProbability(){
+
+        Abrigo abrigo = new Abrigo(new CadastroAbrigoDto(
+                "Abrigo feliz",
+                "94999999999",
+                "abrigofeliz@email.com.br"
+        ));
+
+        Pet pet = new Pet(new CadastroPetDto(
+                TipoPet.GATO,
+                "Miau",
+                "Siames",
+                15,
+                "Cinza",
+                4.0f
+        ), abrigo);
+
+        CalculadoraProbabilidadeAdocao calculadora = new CalculadoraProbabilidadeAdocao();
+        ProbabilidadeAdocao probabilidade =  calculadora.calcular(pet);
+        Assertions.assertEquals(ProbabilidadeAdocao.MEDIA, probabilidade);
     }
 }
